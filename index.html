@@ -340,24 +340,24 @@
         <p>Autoresearch yield · specialist qualification · current regime pressure</p>
       </div>
       <div class="hero-badges">
-        <span class="stamp"><strong>2026-04-30</strong><small>22:00:03</small></span>
+        <span class="stamp"><strong>2026-04-30</strong><small>23:00:04</small></span>
         <span>Refresh 10s</span>
       </div>
     </div>
   </header>
   <main>
-    <section class="stat-grid"><article class='stat-card neutral'><span>Cards tested</span><strong>822</strong><small class='outcome-breakdown'><span><b>Rejected</b> 789 (96.0%)</span><span><b>Parked</b> 0 (0.0%)</span><span><b>Promoted</b> 0 (0.0%)</span></small></article>
-<article class='stat-card active'><span>Lab state</span><strong>32 open card(s)</strong><small>0 pending / 32 running</small></article>
-<article class='stat-card active'><span>Raw specialist yield</span><strong>46.5%</strong><small>382/822 tested cards</small></article>
+    <section class="stat-grid"><article class='stat-card neutral'><span>Cards analyzed</span><strong>822</strong><small class='outcome-breakdown'><span><b>Rejected</b> 789 (96.0%)</span><span><b>Parked</b> 0 (0.0%)</span><span><b>Promoted</b> 0 (0.0%)</span><span><b>Crashed</b> 33 (4.0%)</span></small></article>
+<article class='stat-card active'><span>Lab state</span><strong>24 open card(s)</strong><small>24 pending / 0 running</small></article>
+<article class='stat-card active'><span>Raw specialist yield</span><strong>45.2%</strong><small>382/846 tested cards</small></article>
 <article class='stat-card neutral'><span>Qualified yield</span><strong>0.0%</strong><small>0 qualified leads</small></article>
 <article class='stat-card good'><span>Regime coverage</span><strong>100%</strong><small>70,494 labelled windows</small></article></section>
     <div class="dashboard-grid">
         <section class="panel decision-panel">
           <span class="eyebrow">Next Research Decision</span>
-          <h2>selected action=wait_for_lab</h2>
-          <p>1 experiment card(s) still pending/running; TC lab loop has work. details={&quot;open_cards&quot;: 1}</p>
+          <h2>selected action=build_windowed_result_ledger</h2>
+          <p>29 completed TC backtest run(s) lack short-window ledger rows. Build the 1w/2w/1mo specialist-scoring ledger before generating another full-period candidate family. details={&quot;unscored_done_runs&quot;: 29, &quot;windowed_result_led</p>
           <div class="mini-grid">
-            <div class="mini"><span>Lab</span><strong>32 open card(s)</strong></div>
+            <div class="mini"><span>Lab</span><strong>24 open card(s)</strong></div>
             <div class="mini"><span>Roster</span><strong>Kernel-driven</strong></div>
             <div class="mini"><span>Champion</span><strong>none</strong></div>
           </div>
@@ -370,9 +370,9 @@
         <section class="panel ratchet-panel">
           <span class="eyebrow">Autoresearch Ratchet</span>
           <div class="funnel" style="margin-top: 16px;">
-            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>70</strong></div>
+            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 91%"></span></div><strong>70</strong></div>
             <div class="bar-row"><span>Kept</span><div class="bar"><span class="teal" style="width: 0%"></span></div><strong>0</strong></div>
-            <div class="bar-row"><span>Crashed</span><div class="bar"><span class="amber" style="width: 0%"></span></div><strong>0</strong></div>
+            <div class="bar-row"><span>Crashed</span><div class="bar"><span class="amber" style="width: 9%"></span></div><strong>7</strong></div>
           </div>
           <ul class="ops-list" style="margin-top: 12px;">
             <li><strong>Regime</strong><small>regime-3 · gmm-4-7b00a81a333d · ll=-4.730</small></li>
@@ -383,17 +383,17 @@
           <span class="eyebrow">Autonomy Daemon</span>
           <div class="mini-grid">
             <div class="mini"><span>Lab</span><strong>Lab active</strong></div>
-            <div class="mini"><span>Backlog</span><strong>15</strong></div>
-            <div class="mini"><span>Target Pressure</span><strong>0/12 floor · refill 24</strong></div>
+            <div class="mini"><span>Backlog</span><strong>3</strong></div>
+            <div class="mini"><span>Target Pressure</span><strong>24/12 floor · refill 24</strong></div>
           </div>
           <ul class="ops-list" style="margin-top: 10px;">
             <li><strong>Model</strong><small>ollama/gemma4:e4b</small></li>
-            <li><strong>Open Cards</strong><small>32/32 max</small></li>
-            <li><strong>Latest Event</strong><small>2026-04-30T18:59:31Z · wait_for_lab:blocked</small></li>
+            <li><strong>Open Cards</strong><small>24/32 max</small></li>
+            <li><strong>Latest Event</strong><small>2026-04-30T19:59:57Z · seed_validated_backlog:completed</small></li>
             <li><strong>Latest Proposal</strong><small>ar71-this-strategy-aims-to-capture-sustained-directio · seeded · llm · ollama/gemma4:e4b</small></li>
-            <li><strong>Last Valid Seed</strong><small>2026-04-30T09:45:15Z</small></li>
+            <li><strong>Last Valid Seed</strong><small>2026-04-30T19:59:57Z</small></li>
             <li><strong>Blockers</strong><small>invalid_indicator · 74 rejection fingerprints</small></li>
-            <li><strong>Novelty</strong><small>248 hashes · rejected 491 · seeded 70</small></li>
+            <li><strong>Novelty</strong><small>248 hashes · rejected 491 · seeded 82</small></li>
           </ul>
         </section>
         <section class="panel candidates-panel">
@@ -413,18 +413,19 @@
             <li><strong>Open Brain Reflections</strong><small>Private operator reflections hidden.</small></li>
             <li><strong>Recent Emails / Findings</strong><small>Private report metadata hidden.</small></li>
             <li><strong>In Flight</strong><small>20 card(s) need watching.</small></li>
-            <li><strong>Cards Created Today</strong><small>174</small></li>
+            <li><strong>Cards Created Today</strong><small>198</small></li>
           </ul>
-          <div style="display:none"><div class='metric neutral'><span>Cards</span><strong>822</strong></div>
-<div class='metric neutral'><span>Pending</span><strong>0</strong></div>
-<div class='metric active'><span>Running</span><strong>32</strong></div>
+          <div style="display:none"><div class='metric neutral'><span>Cards</span><strong>846</strong></div>
+<div class='metric warn'><span>Pending</span><strong>24</strong></div>
+<div class='metric neutral'><span>Running</span><strong>0</strong></div>
 <div class='metric neutral'><span>Parked</span><strong>0</strong></div>
 <div class='metric neutral'><span>Promoted</span><strong>0</strong></div>
 <div class='metric neutral'><span>Rejected</span><strong>789</strong></div>
+<div class='metric warn'><span>Crashed</span><strong>33</strong></div>
 <div class='metric active'><span>Specialists</span><strong>382</strong></div>
 <div class='metric neutral'><span>Window Rows</span><strong>70494</strong></div>
 <div class='metric neutral'><span>Emails Sent</span><strong>19</strong></div>
-<div class='metric warn'><span>Open Attention</span><strong>35</strong></div></div>
+<div class='metric warn'><span>Open Attention</span><strong>37</strong></div></div>
         </section>
     </div>
   </main>
