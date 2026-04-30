@@ -123,6 +123,23 @@
       line-height: 1.05;
     }
     .stat-card small { display: block; margin-top: 5px; color: var(--muted); }
+    .outcome-breakdown {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 8px;
+      font-size: 11px;
+      line-height: 1.25;
+    }
+    .outcome-breakdown span {
+      color: var(--muted);
+      text-transform: none;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .outcome-breakdown b {
+      color: #334155;
+      font-weight: 800;
+    }
     .stat-card.good strong { color: var(--good); }
     .stat-card.warn strong { color: var(--warn); }
     .stat-card.bad strong { color: var(--bad); }
@@ -323,13 +340,13 @@
         <p>Autoresearch yield · specialist qualification · current regime pressure</p>
       </div>
       <div class="hero-badges">
-        <span class="stamp"><strong>2026-04-30</strong><small>21:00:03</small></span>
+        <span class="stamp"><strong>2026-04-30</strong><small>22:00:03</small></span>
         <span>Refresh 10s</span>
       </div>
     </div>
   </header>
   <main>
-    <section class="stat-grid"><article class='stat-card neutral'><span>Cards tested</span><strong>822</strong><small>96% rejected</small></article>
+    <section class="stat-grid"><article class='stat-card neutral'><span>Cards tested</span><strong>822</strong><small class='outcome-breakdown'><span><b>Rejected</b> 789 (96.0%)</span><span><b>Parked</b> 0 (0.0%)</span><span><b>Promoted</b> 0 (0.0%)</span></small></article>
 <article class='stat-card active'><span>Lab state</span><strong>32 open card(s)</strong><small>0 pending / 32 running</small></article>
 <article class='stat-card active'><span>Raw specialist yield</span><strong>46.5%</strong><small>382/822 tested cards</small></article>
 <article class='stat-card neutral'><span>Qualified yield</span><strong>0.0%</strong><small>0 qualified leads</small></article>
@@ -372,7 +389,7 @@
           <ul class="ops-list" style="margin-top: 10px;">
             <li><strong>Model</strong><small>ollama/gemma4:e4b</small></li>
             <li><strong>Open Cards</strong><small>32/32 max</small></li>
-            <li><strong>Latest Event</strong><small>2026-04-30T17:59:30Z · wait_for_lab:blocked</small></li>
+            <li><strong>Latest Event</strong><small>2026-04-30T18:59:31Z · wait_for_lab:blocked</small></li>
             <li><strong>Latest Proposal</strong><small>ar71-this-strategy-aims-to-capture-sustained-directio · seeded · llm · ollama/gemma4:e4b</small></li>
             <li><strong>Last Valid Seed</strong><small>2026-04-30T09:45:15Z</small></li>
             <li><strong>Blockers</strong><small>invalid_indicator · 74 rejection fingerprints</small></li>
