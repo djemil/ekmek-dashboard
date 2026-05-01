@@ -161,6 +161,159 @@
     }
     .candidates-panel { grid-column: 1 / 3; }
     .tested-cards-panel { grid-column: 1 / -1; }
+    .lab-flow-panel {
+      max-width: 1480px;
+      margin: 12px auto 0;
+      min-height: 390px;
+    }
+    .iso-stage {
+      position: relative;
+      height: 340px;
+      overflow: hidden;
+      border: 1px solid var(--soft-line);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, .05) 25%, transparent 25%) 0 0 / 28px 28px,
+        linear-gradient(315deg, rgba(15, 23, 42, .04) 25%, transparent 25%) 0 0 / 28px 28px,
+        #f8fafc;
+    }
+    .iso-world {
+      position: absolute;
+      left: 50%;
+      top: 54%;
+      width: 1080px;
+      height: 460px;
+      transform: translate(-50%, -50%) rotateX(58deg) rotateZ(-35deg) scale(.86);
+      transform-style: preserve-3d;
+    }
+    .belt {
+      position: absolute;
+      height: 54px;
+      border-radius: 8px;
+      background: repeating-linear-gradient(90deg, #dbe4ef 0 22px, #cbd8e6 22px 28px);
+      border: 2px solid #94a3b8;
+      box-shadow: 0 12px 0 #7890a8, 0 18px 18px rgba(15, 23, 42, .18);
+      overflow: hidden;
+    }
+    .belt::after {
+      content: "";
+      position: absolute;
+      inset: 16px 0;
+      background: repeating-linear-gradient(90deg, rgba(15, 23, 42, .22) 0 8px, transparent 8px 42px);
+      animation: belt-pulse 2.4s steps(8) infinite;
+    }
+    .belt.input { left: 10px; top: 212px; width: 355px; }
+    .belt.after-lab { left: 500px; top: 212px; width: 150px; }
+    .belt.raw { left: 642px; top: 178px; width: 240px; transform: rotate(-19deg); }
+    .belt.reject-one { left: 642px; top: 258px; width: 230px; transform: rotate(30deg); }
+    .belt.after-specialist { left: 902px; top: 158px; width: 160px; transform: rotate(-17deg); }
+    .belt.reject-two { left: 892px; top: 238px; width: 150px; transform: rotate(27deg); }
+    .splitter {
+      position: absolute;
+      left: 625px;
+      top: 196px;
+      width: 58px;
+      height: 86px;
+      border-radius: 8px;
+      background: #334155;
+      box-shadow: 0 10px 0 #1e293b, 0 17px 18px rgba(15, 23, 42, .22);
+    }
+    .splitter.second { left: 882px; top: 174px; height: 78px; }
+    .machine {
+      position: absolute;
+      width: 155px;
+      height: 112px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #0f766e, #155e75);
+      border: 2px solid rgba(255,255,255,.55);
+      box-shadow: 0 18px 0 #0f4d55, 0 28px 24px rgba(15, 23, 42, .28);
+    }
+    .machine::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 30px 0 rgba(255,255,255,.26);
+    }
+    .machine.lab { left: 350px; top: 174px; }
+    .machine.specialist { left: 790px; top: 124px; background: linear-gradient(135deg, #2563eb, #0f766e); }
+    .flow-label {
+      position: absolute;
+      padding: 6px 9px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--soft-line);
+      font-size: 13px;
+      font-weight: 800;
+      color: #0f172a;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, .10);
+      transform: translateZ(34px);
+      white-space: nowrap;
+    }
+    .flow-label.in { left: 105px; top: 164px; }
+    .flow-label.lab { left: 383px; top: 126px; }
+    .flow-label.raw { left: 717px; top: 130px; }
+    .flow-label.reject { left: 716px; top: 314px; color: var(--bad); }
+    .flow-label.specialist { left: 780px; top: 76px; }
+    .flow-label.qualified { left: 953px; top: 106px; color: var(--good); }
+    .batch {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(3, 18px);
+      grid-auto-rows: 18px;
+      gap: 6px;
+      transform: translateZ(36px);
+      opacity: 0;
+      z-index: 4;
+    }
+    .block {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background: #38bdf8;
+      border: 1px solid rgba(15,23,42,.3);
+      box-shadow: 0 5px 0 rgba(15, 23, 42, .22);
+    }
+    .batch.input { left: 46px; top: 220px; animation: batch-input 12s infinite; animation-delay: var(--delay); }
+    .batch.raw-out { left: 520px; top: 220px; animation: batch-raw 12s infinite; animation-delay: var(--delay); }
+    .batch.reject-out { left: 520px; top: 220px; animation: batch-reject-one 12s infinite; animation-delay: var(--delay); }
+    .batch.qualified-out { left: 810px; top: 150px; animation: batch-qualified 12s infinite; animation-delay: var(--delay); }
+    .batch.reject-specialist { left: 810px; top: 150px; animation: batch-reject-two 12s infinite; animation-delay: var(--delay); }
+    .batch.raw-out .block, .batch.qualified-out .block { background: #22c55e; }
+    .batch.reject-out .block, .batch.reject-specialist .block { background: #ef4444; }
+    @keyframes belt-pulse {
+      from { transform: translateX(0); }
+      to { transform: translateX(42px); }
+    }
+    @keyframes batch-input {
+      0%, 3% { opacity: 0; transform: translate3d(0, 0, 36px); }
+      8%, 26% { opacity: 1; }
+      33%, 100% { opacity: 0; transform: translate3d(285px, 0, 36px); }
+    }
+    @keyframes batch-raw {
+      0%, 30% { opacity: 0; transform: translate3d(0, 0, 36px); }
+      34%, 50% { opacity: 1; }
+      58%, 100% { opacity: 0; transform: translate3d(290px, -82px, 36px); }
+    }
+    @keyframes batch-reject-one {
+      0%, 32% { opacity: 0; transform: translate3d(0, 0, 36px); }
+      36%, 46% { opacity: 1; }
+      54%, 100% { opacity: 0; transform: translate3d(255px, 128px, 36px); }
+    }
+    @keyframes batch-qualified {
+      0%, 58% { opacity: 0; transform: translate3d(0, 0, 36px); }
+      62%, 74% { opacity: 1; }
+      82%, 100% { opacity: 0; transform: translate3d(170px, -56px, 36px); }
+    }
+    @keyframes batch-reject-two {
+      0%, 59% { opacity: 0; transform: translate3d(0, 0, 36px); }
+      63%, 72% { opacity: 1; }
+      80%, 100% { opacity: 0; transform: translate3d(145px, 92px, 36px); }
+    }
     .decision-panel h2 {
       font-size: 23px;
       margin: 7px 0;
@@ -352,6 +505,9 @@
       body { overflow: auto; }
       main { height: auto; overflow: visible; }
       .dashboard-grid { grid-template-columns: 1fr; }
+      .lab-flow-panel { min-height: 330px; }
+      .iso-stage { height: 280px; }
+      .iso-world { transform: translate(-50%, -50%) rotateX(58deg) rotateZ(-35deg) scale(.66); }
       .candidates-panel { grid-column: auto; }
       .tested-cards-panel { grid-column: auto; }
       .candidate-grid, .tested-list { grid-template-columns: 1fr; }
@@ -360,6 +516,9 @@
       header { padding: 18px 14px 78px; }
       h1 { font-size: 28px; }
       main { padding: 12px; }
+      .lab-flow-panel { min-height: 260px; }
+      .iso-stage { height: 220px; }
+      .iso-world { transform: translate(-50%, -50%) rotateX(58deg) rotateZ(-35deg) scale(.48); }
       .stat-grid, .candidate-grid, .mini-grid { grid-template-columns: 1fr; }
       .hero-top { display: block; }
       .hero-badges { justify-content: flex-start; margin-top: 14px; }
@@ -374,60 +533,99 @@
         <p>Autoresearch yield · specialist qualification · current regime pressure</p>
       </div>
       <div class="hero-badges">
-        <span class="stamp"><strong>2026-05-01</strong><small>10:00:06</small></span>
+        <span class="stamp"><strong>2026-05-01</strong><small>11:00:02</small></span>
         <span>Refresh 10s</span>
       </div>
     </div>
   </header>
   <main>
-    <section class="stat-grid"><article class='stat-card neutral'><span>Cards analyzed</span><strong>2,218</strong><small class='outcome-breakdown'><span><b>Rejected</b> 2,160 (97.4%)</span><span><b>Parked</b> 0 (0.0%)</span><span><b>Promoted</b> 0 (0.0%)</span><span><b>Crashed</b> 58 (2.6%)</span></small></article>
-<article class='stat-card active'><span>Lab state</span><strong>42 open card(s)</strong><small>18 pending / 24 running</small></article>
-<article class='stat-card active'><span>Raw specialist yield</span><strong>27.7%</strong><small>625/2,260 tested cards</small></article>
+    <section class="stat-grid"><article class='stat-card neutral'><span>Ratchets analyzed</span><strong>327</strong><small>total ratchets</small></article>
+<article class='stat-card neutral'><span>Cards analyzed</span><strong>2,739</strong><small>total cards</small></article>
+<article class='stat-card active'><span>Lab state</span><strong>26 open card(s)</strong><small>4 pending / 22 running</small></article>
+<article class='stat-card active'><span>Raw specialist yield</span><strong>22.6%</strong><small>625/2,765 tested cards</small></article>
 <article class='stat-card neutral'><span>Qualified yield</span><strong>0.0%</strong><small>0 qualified leads</small></article>
 <article class='stat-card good'><span>Regime coverage</span><strong>100%</strong><small>181,908 labelled windows</small></article></section>
+    <section class="panel lab-flow-panel">
+      <span class="eyebrow">Lab State Flow</span>
+      <div class="iso-stage" aria-label="Animated lab flow from ratchet card batches through lab and specialist evaluation">
+        <div class="iso-world">
+          <div class="belt input"></div>
+          <div class="belt after-lab"></div>
+          <div class="belt raw"></div>
+          <div class="belt reject-one"></div>
+          <div class="belt after-specialist"></div>
+          <div class="belt reject-two"></div>
+          <div class="machine lab"></div>
+          <div class="machine specialist"></div>
+          <div class="splitter"></div>
+          <div class="splitter second"></div>
+          <div class="flow-label in">ratchet batches</div>
+          <div class="flow-label lab">lab</div>
+          <div class="flow-label raw">raw specialists</div>
+          <div class="flow-label reject">reject</div>
+          <div class="flow-label specialist">specialist evaluator</div>
+          <div class="flow-label qualified">qualified</div>
+          <div class="batch input" style="--delay: 0s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch input" style="--delay: 4s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch input" style="--delay: 8s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch raw-out" style="--delay: 0s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch raw-out" style="--delay: 4s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch raw-out" style="--delay: 8s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch reject-out" style="--delay: 0s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch reject-out" style="--delay: 4s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch reject-out" style="--delay: 8s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch qualified-out" style="--delay: 0s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch qualified-out" style="--delay: 4s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch qualified-out" style="--delay: 8s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch reject-specialist" style="--delay: 0s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch reject-specialist" style="--delay: 4s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+          <div class="batch reject-specialist" style="--delay: 8s"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div>
+        </div>
+      </div>
+    </section>
     <div class="dashboard-grid">
         <section class="panel decision-panel">
           <span class="eyebrow">Next Research Decision</span>
           <h2>selected action=wait_for_lab</h2>
           <p>47 experiment card(s) still pending/running; TC lab loop has work. details={&quot;open_cards&quot;: 47}</p>
           <div class="mini-grid">
-            <div class="mini"><span>Lab</span><strong>42 open card(s)</strong></div>
+            <div class="mini"><span>Lab</span><strong>26 open card(s)</strong></div>
             <div class="mini"><span>Roster</span><strong>Kernel-driven</strong></div>
             <div class="mini"><span>Champion</span><strong>none</strong></div>
           </div>
           <div class="mini-grid">
-            <div class="mini"><span>Killed Families</span><strong>250</strong></div>
-            <div class="mini"><span>Active Families</span><strong>4</strong></div>
+            <div class="mini"><span>Killed Families</span><strong>340</strong></div>
+            <div class="mini"><span>Active Families</span><strong>14</strong></div>
             <div class="mini"><span>Need Evidence</span><strong>1,632</strong></div>
           </div>
         </section>
         <section class="panel ratchet-panel">
           <span class="eyebrow">Autoresearch Ratchet</span>
           <div class="funnel" style="margin-top: 16px;">
-            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 95%"></span></div><strong>251</strong></div>
+            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>327</strong></div>
             <div class="bar-row"><span>Kept</span><div class="bar"><span class="teal" style="width: 0%"></span></div><strong>0</strong></div>
-            <div class="bar-row"><span>Crashed</span><div class="bar"><span class="amber" style="width: 5%"></span></div><strong>12</strong></div>
+            <div class="bar-row"><span>Crashed</span><div class="bar"><span class="amber" style="width: 0%"></span></div><strong>0</strong></div>
           </div>
           <ul class="ops-list" style="margin-top: 12px;">
             <li><strong>Regime</strong><small>regime-3 · gmm-4-7b00a81a333d · ll=-4.730</small></li>
-            <li><strong>Family State</strong><small>ar14-regime-3-ema-compression-breakout-mtf is the top non-killed family.</small></li>
+            <li><strong>Family State</strong><small>ar288-capability-fallback-recipe-using-cci-kama-with-n is the top non-killed family.</small></li>
           </ul>
         </section>
         <section class="panel autonomy-panel">
           <span class="eyebrow">Autonomy Daemon</span>
           <div class="mini-grid">
             <div class="mini"><span>Lab</span><strong>Lab active</strong></div>
-            <div class="mini"><span>Backlog</span><strong>1</strong></div>
+            <div class="mini"><span>Backlog</span><strong>0</strong></div>
             <div class="mini"><span>Target Pressure</span><strong>0/24 floor · refill 48</strong></div>
           </div>
           <ul class="ops-list" style="margin-top: 10px;">
             <li><strong>Model</strong><small>ollama/gemma4:e4b</small></li>
-            <li><strong>Open Cards</strong><small>17/64 max</small></li>
-            <li><strong>Latest Event</strong><small>2026-05-01T06:58:29Z · seed_proposal_batch:completed</small></li>
-            <li><strong>Latest Proposal</strong><small>ar264-capability-fallback-recipe-using-cmo-sma-with-no · validated · capability_fallback · ollama/gemma4:e4b</small></li>
-            <li><strong>Last Valid Seed</strong><small>2026-05-01T06:58:29Z</small></li>
-            <li><strong>Blockers</strong><small>fallback_source_suffix · 150 rejection fingerprints</small></li>
-            <li><strong>Novelty</strong><small>1652 hashes · rejected 870 · seeded 741</small></li>
+            <li><strong>Open Cards</strong><small>6/64 max</small></li>
+            <li><strong>Latest Event</strong><small>2026-05-01T07:56:51Z · seed_proposal_batch:completed</small></li>
+            <li><strong>Latest Proposal</strong><small>ar355-capability-fallback-recipe-using-mfi-volume-pres · seeded · capability_fallback · ollama/gemma4:e4b</small></li>
+            <li><strong>Last Valid Seed</strong><small>2026-05-01T07:56:51Z</small></li>
+            <li><strong>Blockers</strong><small>duplicate_strategy_content · 154 rejection fingerprints</small></li>
+            <li><strong>Novelty</strong><small>2196 hashes · rejected 952 · seeded 1004</small></li>
           </ul>
         </section>
         <section class="panel candidates-panel">
@@ -446,19 +644,19 @@
           <ul class="ops-list">
             <li><strong>Open Brain Reflections</strong><small>Private operator reflections hidden.</small></li>
             <li><strong>Recent Emails / Findings</strong><small>Private report metadata hidden.</small></li>
-            <li><strong>In Flight</strong><small>19 card(s) need watching.</small></li>
-            <li><strong>Cards Created Today</strong><small>926</small></li>
+            <li><strong>In Flight</strong><small>6 card(s) need watching.</small></li>
+            <li><strong>Cards Created Today</strong><small>1488</small></li>
           </ul>
-          <div style="display:none"><div class='metric neutral'><span>Cards</span><strong>2260</strong></div>
-<div class='metric warn'><span>Pending</span><strong>18</strong></div>
-<div class='metric active'><span>Running</span><strong>24</strong></div>
+          <div style="display:none"><div class='metric neutral'><span>Cards</span><strong>2765</strong></div>
+<div class='metric warn'><span>Pending</span><strong>4</strong></div>
+<div class='metric active'><span>Running</span><strong>22</strong></div>
 <div class='metric neutral'><span>Parked</span><strong>0</strong></div>
 <div class='metric neutral'><span>Promoted</span><strong>0</strong></div>
-<div class='metric neutral'><span>Rejected</span><strong>2160</strong></div>
-<div class='metric warn'><span>Crashed</span><strong>58</strong></div>
+<div class='metric neutral'><span>Rejected</span><strong>2739</strong></div>
+<div class='metric neutral'><span>Crashed</span><strong>0</strong></div>
 <div class='metric active'><span>Specialists</span><strong>625</strong></div>
 <div class='metric neutral'><span>Window Rows</span><strong>181908</strong></div>
-<div class='metric neutral'><span>Emails Sent</span><strong>22</strong></div>
+<div class='metric neutral'><span>Emails Sent</span><strong>23</strong></div>
 <div class='metric warn'><span>Open Attention</span><strong>41</strong></div></div>
         </section>
         <section class="panel tested-cards-panel">
