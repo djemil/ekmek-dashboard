@@ -92,9 +92,13 @@
       min-width: 240px;
     }
     .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid rgba(255, 232, 173, .42);
       border-radius: 12px;
       padding: 8px 11px;
+      min-height: 44px;
       background: rgba(255, 248, 232, .14);
       color: rgba(255, 251, 237, .95);
       font-size: 12px;
@@ -103,6 +107,7 @@
     }
     .hero-badges .stamp {
       display: grid;
+      align-content: center;
       gap: 1px;
       line-height: 1.1;
       border-radius: 12px;
@@ -245,13 +250,13 @@
     .lab-flow-panel {
       max-width: 1480px;
       margin: 12px auto 0;
-      min-height: 540px;
+      min-height: 660px;
       padding: 0;
       overflow: hidden;
     }
     .lab-flow-shell {
       position: relative;
-      min-height: 540px;
+      min-height: 660px;
       background:
         linear-gradient(90deg, rgba(210, 154, 80, .28) 0 1px, transparent 1px 64px),
         linear-gradient(0deg, rgba(210, 154, 80, .26) 0 1px, transparent 1px 64px),
@@ -298,7 +303,7 @@
     }
     .lab-flow-scaffold {
       position: absolute;
-      inset: 112px 44px 30px;
+      inset: 116px 44px 34px;
       z-index: 1;
       opacity: .95;
       filter: drop-shadow(0 18px 18px rgba(92, 63, 31, .24));
@@ -534,12 +539,12 @@
       font-size: 12px;
       font-weight: 800;
     }
-    .scene-label.input { left: 7%; top: 68%; }
-    .scene-label.lab { left: 32%; top: 43%; }
+    .scene-label.input { left: 7%; top: 66%; }
+    .scene-label.lab { left: 43%; top: 42%; }
     .scene-label.reject { left: 56%; top: 76%; color: #b91c1c; }
-    .scene-label.raw { left: 58%; top: 26%; color: #047857; }
-    .scene-label.specialist { left: 72%; top: 35%; }
-    .scene-label.qualified { right: 5%; top: 18%; color: #047857; }
+    .scene-label.raw { left: 58%; top: 32%; color: #047857; }
+    .scene-label.specialist { left: 72%; top: 43%; }
+    .scene-label.qualified { right: 5%; top: 24%; color: #047857; }
     .lab-flow-fallback {
       position: absolute;
       inset: auto 18px 18px 18px;
@@ -832,7 +837,7 @@
       body { overflow: auto; }
       main { height: auto; overflow: visible; }
       .dashboard-grid { grid-template-columns: 1fr; }
-      .lab-flow-panel, .lab-flow-shell { min-height: 560px; }
+      .lab-flow-panel, .lab-flow-shell { min-height: 680px; }
       .lab-flow-topbar { display: block; }
       .lab-flow-readouts { grid-template-columns: repeat(2, minmax(0, 1fr)); min-width: 0; margin-top: 12px; }
       .candidates-panel { grid-column: auto; }
@@ -843,7 +848,7 @@
       header { padding: 18px 14px 78px; }
       h1 { font-size: 28px; }
       main { padding: 12px; }
-      .lab-flow-panel, .lab-flow-shell { min-height: 760px; }
+      .lab-flow-panel, .lab-flow-shell { min-height: 840px; }
       .lab-flow-readouts { grid-template-columns: 1fr; }
       .lab-flow-title strong { font-size: 22px; }
       .scene-label { font-size: 13px; padding: 6px 8px; }
@@ -867,24 +872,24 @@
         <p>Autoresearch yield · specialist qualification · current regime pressure</p>
       </div>
       <div class="hero-badges">
-        <span class="stamp"><strong>2026-05-01</strong><small>12:00:08</small></span>
+        <span class="stamp"><strong>2026-05-01</strong><small>13:00:54</small></span>
         <span>Refresh 10s</span>
       </div>
     </div>
   </header>
   <main>
-    <section class="stat-grid"><article class='stat-card neutral'><span>Ratchets analyzed</span><strong>552</strong><small>total ratchets</small></article>
-<article class='stat-card neutral'><span>Cards analyzed</span><strong>3,162</strong><small>total cards</small></article>
-<article class='stat-card active'><span>Lab state</span><strong>27 open card(s)</strong><small>8 pending / 19 running</small></article>
-<article class='stat-card active'><span>Raw specialist yield</span><strong>25.4%</strong><small>811/3,189 tested cards</small></article>
+    <section class="stat-grid"><article class='stat-card neutral'><span>Ratchets analyzed</span><strong>688</strong><small>total ratchets</small></article>
+<article class='stat-card neutral'><span>Cards analyzed</span><strong>3,434</strong><small>total cards</small></article>
+<article class='stat-card active'><span>Lab state</span><strong>43 open card(s)</strong><small>30 pending / 13 running</small></article>
+<article class='stat-card active'><span>Raw specialist yield</span><strong>24.0%</strong><small>836/3,477 tested cards</small></article>
 <article class='stat-card neutral'><span>Qualified yield</span><strong>0.0%</strong><small>0 qualified leads</small></article>
-<article class='stat-card good'><span>Regime coverage</span><strong>100%</strong><small>278,907 labelled windows</small></article></section>
+<article class='stat-card good'><span>Regime coverage</span><strong>100%</strong><small>296,670 labelled windows</small></article></section>
     <section class="panel lab-flow-panel">
       <div class="lab-flow-shell" aria-label="Data-driven 3D lab flow animation">
         <canvas id="lab-flow-canvas"></canvas>
         <div class="lab-flow-scaffold" aria-hidden="true">
           
-          <svg class="flow-conveyor-svg" viewBox="0 0 1400 380" preserveAspectRatio="none" role="img" aria-label="Animated batch conveyors">
+          <svg class="flow-conveyor-svg" viewBox="0 0 1400 520" preserveAspectRatio="none" role="img" aria-label="Animated batch conveyors">
             <defs>
               <linearGradient id="machineGrad" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#9bc96a"></stop>
@@ -894,11 +899,11 @@
                 <stop offset="0" stop-color="#b2d778"></stop>
                 <stop offset="1" stop-color="#5da14d"></stop>
               </linearGradient>
-              <path id="inputPath" d="M70 246 C230 222 365 194 520 181 C620 171 655 164 700 141"></path>
-              <path id="rawPath" d="M700 141 C790 91 870 54 965 20"></path>
-              <path id="rejectPath" d="M700 185 C802 225 923 282 1044 337"></path>
-              <path id="qualifiedPath" d="M988 89 C1105 45 1228 15 1340 -16"></path>
-              <path id="specialistRejectPath" d="M990 220 C1112 250 1226 289 1346 326"></path>
+              <path id="inputPath" d="M70 338 C232 317 388 283 535 268 C620 258 672 247 700 245"></path>
+              <path id="rawPath" d="M700 245 C800 178 910 160 956 226 C972 250 970 270 952 286"></path>
+              <path id="rejectPath" d="M700 245 C812 300 936 382 1062 456"></path>
+              <path id="qualifiedPath" d="M1070 276 C1150 208 1252 122 1360 70"></path>
+              <path id="specialistRejectPath" d="M1070 292 C1166 326 1262 376 1362 430"></path>
             </defs>
             <use href="#inputPath" class="flow-rail"></use>
             <use href="#inputPath" class="flow-belt"></use>
@@ -915,21 +920,19 @@
             <use href="#specialistRejectPath" class="flow-rail"></use>
             <use href="#specialistRejectPath" class="flow-belt"></use>
             <use href="#specialistRejectPath" class="flow-rollers"></use>
-            <ellipse class="flow-machine-shadow" cx="440" cy="218" rx="64" ry="19"></ellipse>
-            <rect class="svg-machine" x="403" y="169" width="112" height="78" rx="10" transform="rotate(-10 459 208)"></rect>
-            <rect class="svg-machine-window" x="426" y="190" width="70" height="14" rx="7" transform="rotate(-10 461 197)"></rect>
-            <ellipse class="flow-machine-shadow" cx="970" cy="201" rx="60" ry="18"></ellipse>
-            <rect class="svg-machine specialist" x="928" y="152" width="108" height="76" rx="10" transform="rotate(-10 982 190)"></rect>
-            <rect class="svg-machine-window" x="950" y="173" width="68" height="13" rx="7" transform="rotate(-10 984 180)"></rect>
-            <circle class="flow-junction" cx="700" cy="164" r="20"></circle>
-            <circle class="flow-junction" cx="982" cy="183" r="18"></circle>
-            <g class="svg-batch input"><rect x="-36.0" y="-18.0" width="14" height="14"></rect><rect x="-18.0" y="-18.0" width="14" height="14"></rect><rect x="0.0" y="-18.0" width="14" height="14"></rect><rect x="18.0" y="-18.0" width="14" height="14"></rect><rect x="-36.0" y="0.0" width="14" height="14"></rect><rect x="-18.0" y="0.0" width="14" height="14"></rect><rect x="0.0" y="0.0" width="14" height="14"></rect><animateMotion dur="7.6s" begin="-.2s" repeatCount="indefinite" rotate="auto"><mpath href="#inputPath"></mpath></animateMotion></g>
-              <g class="svg-batch input"><rect x="-36.0" y="-18.0" width="14" height="14"></rect><rect x="-18.0" y="-18.0" width="14" height="14"></rect><rect x="0.0" y="-18.0" width="14" height="14"></rect><rect x="18.0" y="-18.0" width="14" height="14"></rect><rect x="-36.0" y="0.0" width="14" height="14"></rect><rect x="-18.0" y="0.0" width="14" height="14"></rect><rect x="0.0" y="0.0" width="14" height="14"></rect><animateMotion dur="7.6s" begin="-2.7s" repeatCount="indefinite" rotate="auto"><mpath href="#inputPath"></mpath></animateMotion></g>
-              <g class="svg-batch input"><rect x="-36.0" y="-18.0" width="14" height="14"></rect><rect x="-18.0" y="-18.0" width="14" height="14"></rect><rect x="0.0" y="-18.0" width="14" height="14"></rect><rect x="18.0" y="-18.0" width="14" height="14"></rect><rect x="-36.0" y="0.0" width="14" height="14"></rect><rect x="-18.0" y="0.0" width="14" height="14"></rect><rect x="0.0" y="0.0" width="14" height="14"></rect><animateMotion dur="7.6s" begin="-5.2s" repeatCount="indefinite" rotate="auto"><mpath href="#inputPath"></mpath></animateMotion></g>
-              <g class="svg-batch reject"><rect x="-36.0" y="-18.0" width="14" height="14"></rect><rect x="-18.0" y="-18.0" width="14" height="14"></rect><rect x="0.0" y="-18.0" width="14" height="14"></rect><rect x="18.0" y="-18.0" width="14" height="14"></rect><rect x="-36.0" y="0.0" width="14" height="14"></rect><rect x="-18.0" y="0.0" width="14" height="14"></rect><rect x="0.0" y="0.0" width="14" height="14"></rect><animateMotion dur="7.9s" begin="-1.1s" repeatCount="indefinite" rotate="auto"><mpath href="#rejectPath"></mpath></animateMotion></g>
-              <g class="svg-batch reject"><rect x="-36.0" y="-18.0" width="14" height="14"></rect><rect x="-18.0" y="-18.0" width="14" height="14"></rect><rect x="0.0" y="-18.0" width="14" height="14"></rect><rect x="18.0" y="-18.0" width="14" height="14"></rect><rect x="-36.0" y="0.0" width="14" height="14"></rect><rect x="-18.0" y="0.0" width="14" height="14"></rect><rect x="0.0" y="0.0" width="14" height="14"></rect><animateMotion dur="7.9s" begin="-4.3s" repeatCount="indefinite" rotate="auto"><mpath href="#rejectPath"></mpath></animateMotion></g>
-              <g class="svg-batch raw"><rect x="-18.0" y="-9.0" width="14" height="14"></rect><rect x="0.0" y="-9.0" width="14" height="14"></rect><animateMotion dur="9.2s" begin="-1.6s" repeatCount="indefinite" rotate="auto"><mpath href="#rawPath"></mpath></animateMotion></g>
-              <g class="svg-batch raw"><rect x="-18.0" y="-9.0" width="14" height="14"></rect><rect x="0.0" y="-9.0" width="14" height="14"></rect><animateMotion dur="9.2s" begin="-5.9s" repeatCount="indefinite" rotate="auto"><mpath href="#rawPath"></mpath></animateMotion></g>
+            <ellipse class="flow-machine-shadow" cx="700" cy="276" rx="68" ry="21"></ellipse>
+            <rect class="svg-machine" x="642" y="204" width="116" height="82" rx="10" transform="rotate(-10 700 245)"></rect>
+            <rect class="svg-machine-window" x="666" y="226" width="74" height="13" rx="7" transform="rotate(-10 703 233)"></rect>
+            <ellipse class="flow-machine-shadow" cx="1070" cy="318" rx="68" ry="21"></ellipse>
+            <rect class="svg-machine specialist" x="1012" y="243" width="116" height="82" rx="10" transform="rotate(-10 1070 284)"></rect>
+            <rect class="svg-machine-window" x="1036" y="265" width="74" height="13" rx="7" transform="rotate(-10 1073 272)"></rect>
+            <g class="svg-batch input"><rect x="-36.0" y="-27.0" width="14" height="14"></rect><rect x="-18.0" y="-27.0" width="14" height="14"></rect><rect x="0.0" y="-27.0" width="14" height="14"></rect><rect x="18.0" y="-27.0" width="14" height="14"></rect><rect x="-36.0" y="-9.0" width="14" height="14"></rect><rect x="-18.0" y="-9.0" width="14" height="14"></rect><rect x="0.0" y="-9.0" width="14" height="14"></rect><rect x="18.0" y="-9.0" width="14" height="14"></rect><rect x="-36.0" y="9.0" width="14" height="14"></rect><rect x="-18.0" y="9.0" width="14" height="14"></rect><animateMotion dur="7.6s" begin="-.2s" repeatCount="indefinite" rotate="auto"><mpath href="#inputPath"></mpath></animateMotion></g>
+              <g class="svg-batch input"><rect x="-36.0" y="-27.0" width="14" height="14"></rect><rect x="-18.0" y="-27.0" width="14" height="14"></rect><rect x="0.0" y="-27.0" width="14" height="14"></rect><rect x="18.0" y="-27.0" width="14" height="14"></rect><rect x="-36.0" y="-9.0" width="14" height="14"></rect><rect x="-18.0" y="-9.0" width="14" height="14"></rect><rect x="0.0" y="-9.0" width="14" height="14"></rect><rect x="18.0" y="-9.0" width="14" height="14"></rect><rect x="-36.0" y="9.0" width="14" height="14"></rect><rect x="-18.0" y="9.0" width="14" height="14"></rect><animateMotion dur="7.6s" begin="-2.7s" repeatCount="indefinite" rotate="auto"><mpath href="#inputPath"></mpath></animateMotion></g>
+              <g class="svg-batch input"><rect x="-36.0" y="-27.0" width="14" height="14"></rect><rect x="-18.0" y="-27.0" width="14" height="14"></rect><rect x="0.0" y="-27.0" width="14" height="14"></rect><rect x="18.0" y="-27.0" width="14" height="14"></rect><rect x="-36.0" y="-9.0" width="14" height="14"></rect><rect x="-18.0" y="-9.0" width="14" height="14"></rect><rect x="0.0" y="-9.0" width="14" height="14"></rect><rect x="18.0" y="-9.0" width="14" height="14"></rect><rect x="-36.0" y="9.0" width="14" height="14"></rect><rect x="-18.0" y="9.0" width="14" height="14"></rect><animateMotion dur="7.6s" begin="-5.2s" repeatCount="indefinite" rotate="auto"><mpath href="#inputPath"></mpath></animateMotion></g>
+              <g class="svg-batch reject"><rect x="-36.0" y="-18.0" width="14" height="14"></rect><rect x="-18.0" y="-18.0" width="14" height="14"></rect><rect x="0.0" y="-18.0" width="14" height="14"></rect><rect x="18.0" y="-18.0" width="14" height="14"></rect><rect x="-36.0" y="0.0" width="14" height="14"></rect><rect x="-18.0" y="0.0" width="14" height="14"></rect><rect x="0.0" y="0.0" width="14" height="14"></rect><rect x="18.0" y="0.0" width="14" height="14"></rect><animateMotion dur="7.9s" begin="-1.1s" repeatCount="indefinite" rotate="auto"><mpath href="#rejectPath"></mpath></animateMotion></g>
+              <g class="svg-batch reject"><rect x="-36.0" y="-18.0" width="14" height="14"></rect><rect x="-18.0" y="-18.0" width="14" height="14"></rect><rect x="0.0" y="-18.0" width="14" height="14"></rect><rect x="18.0" y="-18.0" width="14" height="14"></rect><rect x="-36.0" y="0.0" width="14" height="14"></rect><rect x="-18.0" y="0.0" width="14" height="14"></rect><rect x="0.0" y="0.0" width="14" height="14"></rect><rect x="18.0" y="0.0" width="14" height="14"></rect><animateMotion dur="7.9s" begin="-4.3s" repeatCount="indefinite" rotate="auto"><mpath href="#rejectPath"></mpath></animateMotion></g>
+              <g class="svg-batch raw"><rect x="-27.0" y="-9.0" width="14" height="14"></rect><rect x="-9.0" y="-9.0" width="14" height="14"></rect><rect x="9.0" y="-9.0" width="14" height="14"></rect><animateMotion dur="9.2s" begin="-1.6s" repeatCount="indefinite" rotate="auto"><mpath href="#rawPath"></mpath></animateMotion></g>
+              <g class="svg-batch raw"><rect x="-27.0" y="-9.0" width="14" height="14"></rect><rect x="-9.0" y="-9.0" width="14" height="14"></rect><rect x="9.0" y="-9.0" width="14" height="14"></rect><animateMotion dur="9.2s" begin="-5.9s" repeatCount="indefinite" rotate="auto"><mpath href="#rawPath"></mpath></animateMotion></g>
               <g class="svg-batch reject"><rect x="-18.0" y="-9.0" width="14" height="14"></rect><rect x="0.0" y="-9.0" width="14" height="14"></rect><animateMotion dur="10.2s" begin="-3.2s" repeatCount="indefinite" rotate="auto"><mpath href="#specialistRejectPath"></mpath></animateMotion></g>
           </svg>
           <div class="scaffold-belt input"></div>
@@ -940,28 +943,28 @@
           <div class="scaffold-belt reject-two"></div>
           <div class="scaffold-machine lab"></div>
           <div class="scaffold-machine specialist"></div>
-          <div class="scaffold-batch input"><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span></div>
-          <div class="scaffold-batch raw"><span class="scaffold-block"></span><span class="scaffold-block"></span></div>
-          <div class="scaffold-batch reject"><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span></div>
+          <div class="scaffold-batch input"><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span></div>
+          <div class="scaffold-batch raw"><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span></div>
+          <div class="scaffold-batch reject"><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span><span class="scaffold-block"></span></div>
           <div class="scaffold-batch qualified"><span class="scaffold-block"></span></div>
         </div>
         <div class="lab-flow-topbar">
           <div class="lab-flow-title">
             <span>Lab State Flow</span>
-            <strong>27 open card(s)</strong>
+            <strong>43 open card(s)</strong>
           </div>
           <div class="lab-flow-readouts">
-            <div class="flow-readout flow-open"><span>Open Cards</span><strong>27</strong><small>8 pending / 19 running</small></div>
-            <div class="flow-readout flow-lab"><span>Raw Specialist Split</span><strong>25.4%</strong><small>811/3,189 raw specialists</small></div>
+            <div class="flow-readout flow-open"><span>Open Cards</span><strong>43</strong><small>30 pending / 13 running</small></div>
+            <div class="flow-readout flow-lab"><span>Raw Specialist Split</span><strong>24.0%</strong><small>836/3,477 raw specialists</small></div>
             <div class="flow-readout flow-qualified"><span>Qualified Split</span><strong>0.0%</strong><small>0 qualified leads</small></div>
-            <div class="flow-readout flow-reject"><span>Rejected Cards</span><strong>3,162</strong><small>552 ratchets analyzed</small></div>
+            <div class="flow-readout flow-reject"><span>Rejected Cards</span><strong>3,434</strong><small>688 ratchets analyzed</small></div>
           </div>
         </div>
         <div class="lab-flow-labels">
-          <div class="scene-label input">ratchet batches<small>552 tested parties</small></div>
-          <div class="scene-label lab">TC lab<small>27 open cards</small></div>
-          <div class="scene-label reject">reject<small>3,162 cards</small></div>
-          <div class="scene-label raw">raw specialists<small>811 leads</small></div>
+          <div class="scene-label input">ratchet batches<small>688 tested parties</small></div>
+          <div class="scene-label lab">TC lab<small>43 open cards</small></div>
+          <div class="scene-label reject">reject<small>3,434 cards</small></div>
+          <div class="scene-label raw">raw specialists<small>836 leads</small></div>
           <div class="scene-label specialist">specialist evaluator<small>repeatability / regime fit</small></div>
           <div class="scene-label qualified">qualified<small>0 leads</small></div>
         </div>
@@ -974,20 +977,20 @@
           <h2>selected action=wait_for_lab</h2>
           <p>47 experiment card(s) still pending/running; TC lab loop has work. details={&quot;open_cards&quot;: 47}</p>
           <div class="mini-grid">
-            <div class="mini"><span>Lab</span><strong>27 open card(s)</strong></div>
+            <div class="mini"><span>Lab</span><strong>43 open card(s)</strong></div>
             <div class="mini"><span>Roster</span><strong>Kernel-driven</strong></div>
             <div class="mini"><span>Champion</span><strong>none</strong></div>
           </div>
           <div class="mini-grid">
-            <div class="mini"><span>Killed Families</span><strong>552</strong></div>
-            <div class="mini"><span>Active Families</span><strong>14</strong></div>
-            <div class="mini"><span>Need Evidence</span><strong>2,460</strong></div>
+            <div class="mini"><span>Killed Families</span><strong>688</strong></div>
+            <div class="mini"><span>Active Families</span><strong>22</strong></div>
+            <div class="mini"><span>Need Evidence</span><strong>2,628</strong></div>
           </div>
         </section>
         <section class="panel ratchet-panel">
           <span class="eyebrow">Autoresearch Ratchet</span>
           <div class="funnel" style="margin-top: 16px;">
-            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>552</strong></div>
+            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>688</strong></div>
             <div class="bar-row"><span>Kept</span><div class="bar"><span class="teal" style="width: 0%"></span></div><strong>0</strong></div>
             <div class="bar-row"><span>Crashed</span><div class="bar"><span class="amber" style="width: 0%"></span></div><strong>0</strong></div>
           </div>
@@ -1001,16 +1004,16 @@
           <div class="mini-grid">
             <div class="mini"><span>Lab</span><strong>Lab active</strong></div>
             <div class="mini"><span>Backlog</span><strong>0</strong></div>
-            <div class="mini"><span>Target Pressure</span><strong>0/24 floor · refill 48</strong></div>
+            <div class="mini"><span>Target Pressure</span><strong>20/24 floor · refill 48</strong></div>
           </div>
           <ul class="ops-list" style="margin-top: 10px;">
             <li><strong>Model</strong><small>ollama/gemma4:e4b</small></li>
-            <li><strong>Open Cards</strong><small>3/64 max</small></li>
-            <li><strong>Latest Event</strong><small>2026-05-01T08:57:28Z · seed_proposal_batch:completed</small></li>
-            <li><strong>Latest Proposal</strong><small>ar568-capability-fallback-recipe-using-cmo-sma-with-no · seeded · capability_fallback · ollama/gemma4:e4b</small></li>
-            <li><strong>Last Valid Seed</strong><small>2026-05-01T08:57:28Z</small></li>
+            <li><strong>Open Cards</strong><small>32/64 max</small></li>
+            <li><strong>Latest Event</strong><small>2026-05-01T09:59:24Z · seed_proposal_batch:completed</small></li>
+            <li><strong>Latest Proposal</strong><small>ar712-capability-fallback-recipe-using-cmo-sma-with-no · seeded · capability_fallback · ollama/gemma4:e4b</small></li>
+            <li><strong>Last Valid Seed</strong><small>2026-05-01T09:59:24Z</small></li>
             <li><strong>Blockers</strong><small>duplicate_strategy_content · 154 rejection fingerprints</small></li>
-            <li><strong>Novelty</strong><small>2620 hashes · rejected 1024 · seeded 1216</small></li>
+            <li><strong>Novelty</strong><small>2908 hashes · rejected 1072 · seeded 1360</small></li>
           </ul>
         </section>
         <section class="panel candidates-panel">
@@ -1033,20 +1036,20 @@
           <ul class="ops-list">
             <li><strong>Open Brain Reflections</strong><small>Private operator reflections hidden.</small></li>
             <li><strong>Recent Emails / Findings</strong><small>Private report metadata hidden.</small></li>
-            <li><strong>In Flight</strong><small>9 card(s) need watching.</small></li>
-            <li><strong>Cards Created Today</strong><small>1912</small></li>
+            <li><strong>In Flight</strong><small>20 card(s) need watching.</small></li>
+            <li><strong>Cards Created Today</strong><small>2200</small></li>
           </ul>
-          <div style="display:none"><div class='metric neutral'><span>Cards</span><strong>3189</strong></div>
-<div class='metric warn'><span>Pending</span><strong>8</strong></div>
-<div class='metric active'><span>Running</span><strong>19</strong></div>
+          <div style="display:none"><div class='metric neutral'><span>Cards</span><strong>3477</strong></div>
+<div class='metric warn'><span>Pending</span><strong>30</strong></div>
+<div class='metric active'><span>Running</span><strong>13</strong></div>
 <div class='metric neutral'><span>Parked</span><strong>0</strong></div>
 <div class='metric neutral'><span>Promoted</span><strong>0</strong></div>
-<div class='metric neutral'><span>Rejected</span><strong>3162</strong></div>
+<div class='metric neutral'><span>Rejected</span><strong>3434</strong></div>
 <div class='metric neutral'><span>Crashed</span><strong>0</strong></div>
-<div class='metric active'><span>Specialists</span><strong>811</strong></div>
-<div class='metric neutral'><span>Window Rows</span><strong>278907</strong></div>
+<div class='metric active'><span>Specialists</span><strong>836</strong></div>
+<div class='metric neutral'><span>Window Rows</span><strong>296670</strong></div>
 <div class='metric neutral'><span>Emails Sent</span><strong>23</strong></div>
-<div class='metric warn'><span>Open Attention</span><strong>41</strong></div></div>
+<div class='metric warn'><span>Open Attention</span><strong>42</strong></div></div>
         </section>
         <section class="panel tested-cards-panel">
           <h2>Tested Card Outcomes</h2>
@@ -1054,7 +1057,7 @@
         </section>
     </div>
   </main>
-  <script type="application/json" id="lab-flow-state">{&quot;analyzedCards&quot;: 3162, &quot;batchSize&quot;: 7, &quot;crashedCards&quot;: 0, &quot;openCards&quot;: 27, &quot;pendingCards&quot;: 8, &quot;qualifiedLeads&quot;: 0, &quot;qualifiedRate&quot;: 0.0, &quot;ratchetsAnalyzed&quot;: 552, &quot;rawSpecialistLeads&quot;: 811, &quot;rawSpecialistRate&quot;: 0.2543116964565695, &quot;rejectedCards&quot;: 3162, &quot;runningCards&quot;: 19, &quot;testedCards&quot;: 3189}</script>
+  <script type="application/json" id="lab-flow-state">{&quot;analyzedCards&quot;: 3434, &quot;batchSize&quot;: 11, &quot;crashedCards&quot;: 0, &quot;openCards&quot;: 43, &quot;pendingCards&quot;: 30, &quot;qualifiedLeads&quot;: 0, &quot;qualifiedRate&quot;: 0.0, &quot;ratchetsAnalyzed&quot;: 688, &quot;rawSpecialistLeads&quot;: 836, &quot;rawSpecialistRate&quot;: 0.24043715846994534, &quot;rejectedCards&quot;: 3434, &quot;runningCards&quot;: 13, &quot;testedCards&quot;: 3477}</script>
 
   <script type="module">
     import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
