@@ -215,6 +215,132 @@
       color: #513a22;
       font-weight: 800;
     }
+    .monthly-flow-panel {
+      max-width: 1480px;
+      margin: 14px auto 0;
+      overflow: hidden;
+    }
+    .monthly-flow-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .monthly-flow-head h2 {
+      margin: 5px 0 0;
+      font-size: 24px;
+      color: var(--ink);
+    }
+    .monthly-flow-head > strong {
+      display: grid;
+      justify-items: end;
+      color: #10224a;
+      font-size: 23px;
+      line-height: 1.05;
+    }
+    .monthly-flow-head small {
+      margin-top: 5px;
+      color: var(--good);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .monthly-flow-lanes {
+      display: grid;
+      grid-template-columns: minmax(130px, 1fr) minmax(70px, .42fr) minmax(130px, .9fr) minmax(72px, .36fr) minmax(130px, .9fr) minmax(130px, .9fr);
+      gap: 10px;
+      align-items: center;
+      margin-top: 16px;
+    }
+    .monthly-node {
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid rgba(128, 92, 50, .22);
+      border-radius: 8px;
+      background: rgba(255, 248, 232, .62);
+    }
+    .monthly-node span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .monthly-node strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1;
+    }
+    .monthly-node.kept strong { color: var(--good); }
+    .monthly-node.rejected strong { color: var(--bad); }
+    .flow-meter {
+      height: 8px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: rgba(128, 92, 50, .13);
+      overflow: hidden;
+    }
+    .flow-meter i {
+      display: block;
+      min-width: 4px;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--active);
+    }
+    .monthly-node.rejected .flow-meter i { background: var(--bad); }
+    .monthly-node.kept .flow-meter i { background: var(--good); }
+    .flow-track, .flow-split {
+      position: relative;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(128, 92, 50, .16);
+      overflow: hidden;
+    }
+    .flow-track span, .flow-split span {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(90deg, transparent 0 12px, rgba(255,255,255,.58) 12px 20px), var(--active);
+      animation: monthlyFlow 1.1s linear infinite;
+    }
+    .flow-split {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px;
+      height: 40px;
+      background: transparent;
+    }
+    .flow-split span {
+      position: relative;
+      border-radius: 999px;
+    }
+    .flow-split .reject { background-color: var(--bad); }
+    .flow-split .keep { background-color: var(--good); animation-duration: 1.6s; }
+    @keyframes monthlyFlow {
+      from { background-position: 0 0; }
+      to { background-position: 32px 0; }
+    }
+    .monthly-flow-insights {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 13px;
+    }
+    .monthly-flow-insights span {
+      display: block;
+      padding: 9px 10px;
+      border: 1px solid rgba(128, 92, 50, .18);
+      border-radius: 8px;
+      background: rgba(255, 248, 232, .46);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+    .monthly-flow-insights b {
+      color: var(--ink);
+      font-size: 14px;
+    }
     .stat-card.good strong { color: var(--good); }
     .stat-card.warn strong { color: var(--warn); }
     .stat-card.bad strong { color: var(--bad); }
@@ -624,6 +750,9 @@
       main { height: auto; overflow: visible; }
       .dashboard-grid { grid-template-columns: 1fr; }
       .left-stack { grid-template-rows: auto; }
+      .monthly-flow-lanes { grid-template-columns: 1fr; }
+      .flow-track, .flow-split { display: none; }
+      .monthly-flow-insights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .candidate-grid, .raw-specialist-list { grid-template-columns: 1fr; }
       .specialist-grid { min-width: 920px; }
       .validation-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -633,6 +762,9 @@
       h1 { font-size: 28px; }
       main { padding: 12px; }
       .stat-grid, .candidate-grid, .mini-grid { grid-template-columns: 1fr; }
+      .monthly-flow-head { display: block; }
+      .monthly-flow-head > strong { justify-items: start; margin-top: 12px; }
+      .monthly-flow-insights { grid-template-columns: 1fr; }
       .validation-strip { grid-template-columns: 1fr; }
       .hero-top { display: block; }
       .hero-badges { justify-content: flex-start; margin-top: 14px; }
@@ -647,16 +779,53 @@
         <p>Autoresearch yield · specialist qualification · current regime pressure</p>
       </div>
       <div class="hero-badges">
-        <span class="stamp"><strong>2026-05-03</strong><small>01:08:43</small></span>
+        <span class="stamp"><strong>2026-05-03</strong><small>02:00:14</small></span>
         <span>Refresh 10s</span>
       </div>
     </div>
   </header>
   <main>
-    <section class="stat-grid compact-status">
-      <article class='stat-card matrix-card active'><span>Monthly matrix</span><strong>0.55%</strong><small>590 done of 107,544</small><div class='matrix-mini'><span><b>296</b> running</span><span><b>106,658</b> queued</span><span><b>4,481</b>x24</span></div></article>
-<article class='stat-card neutral'><span>Cards analyzed</span><strong>10,711</strong><small>non-matrix research cards</small></article>
+    
+    <section class="panel monthly-flow-panel">
+      <div class="monthly-flow-head">
+        <div>
+          <span class="eyebrow">Monthly Validation Drain</span>
+          <h2>2024-2025 strategy months</h2>
+        </div>
+        <strong>35 promising <small>1.84% of completed</small></strong>
+      </div>
+      <div class="monthly-flow-lanes" aria-label="Monthly strategy test flow">
+        <div class="monthly-node waiting">
+          <span>Waiting</span><strong>105,604</strong>
+          <div class="flow-meter"><i style="width: 98.20%"></i></div>
+        </div>
+        <div class="flow-track active"><span></span></div>
+        <div class="monthly-node testing">
+          <span>Testing</span><strong>38</strong>
+          <div class="flow-meter"><i style="width: 0.35%"></i></div>
+        </div>
+        <div class="flow-split">
+          <span class="reject"></span>
+          <span class="keep"></span>
+        </div>
+        <div class="monthly-node rejected">
+          <span>Rejected</span><strong>1,870</strong>
+          <div class="flow-meter"><i style="width: 1.74%"></i></div>
+        </div>
+        <div class="monthly-node kept">
+          <span>Kept</span><strong>35</strong>
+          <div class="flow-meter"><i style="width: 0.35%"></i></div>
+        </div>
+      </div>
+      <div class="monthly-flow-insights">
+        <span><b>1,902</b> done / 107,544</span>
+        <span><b>880</b> tests/hour</span>
+        <span><b>6.7m</b> dispatch to done avg</span>
+        <span><b>25</b> TC queued · avg age 2.0m</span>
+        <span><b>5.0d</b> ETA at current pace</span>
+      </div>
     </section>
+    
     <div class="dashboard-grid">
       <div class="left-stack">
         <section class="panel ratchet-panel">
@@ -682,6 +851,7 @@
             <li><strong>Open Brain Reflections</strong><small>Private operator reflections hidden.</small></li>
             <li><strong>Recent Emails / Findings</strong><small>Private report metadata hidden.</small></li>
             <li><strong>Research In Flight</strong><small>No non-matrix research cards pending, running, or parked.</small></li>
+            <li><strong>Non-Matrix Analyzed</strong><small>10,711 historical research cards</small></li>
             <li><strong>Cards Created Today</strong><small>5960</small></li>
           </ul>
           <div style="display:none"><div class='metric neutral'><span>Cards</span><strong>10711</strong></div>
