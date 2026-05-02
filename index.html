@@ -303,10 +303,27 @@
     }
     .lab-flow-scaffold {
       position: absolute;
-      inset: 116px 44px 34px;
+      inset: 116px 44px 34px 320px;
       z-index: 1;
       opacity: .95;
       filter: drop-shadow(0 18px 18px rgba(92, 63, 31, .24));
+    }
+    .lab-flow-side-stats {
+      position: absolute;
+      z-index: 4;
+      left: 18px;
+      top: 112px;
+      width: 268px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .lab-flow-side-stats .stat-card {
+      min-height: 82px;
+      padding: 11px 13px 10px;
+    }
+    .lab-flow-side-stats .stat-card strong {
+      font-size: 22px;
     }
     .flow-conveyor-svg {
       position: absolute;
@@ -360,8 +377,16 @@
       filter: drop-shadow(0 12px 2px rgba(91, 55, 28, .25));
     }
     .svg-machine.specialist { fill: url(#specialistGrad); }
+    .svg-machine.specialist.inactive {
+      fill: #89936e;
+      stroke: rgba(86, 97, 69, .82);
+      filter: grayscale(.35) drop-shadow(0 10px 2px rgba(91, 55, 28, .22));
+    }
     .svg-machine-window {
       fill: rgba(229, 245, 197, .82);
+    }
+    .svg-machine-window.inactive {
+      fill: rgba(214, 219, 201, .55);
     }
     .svg-batch rect {
       stroke-width: 2;
@@ -458,7 +483,7 @@
     .lab-flow-topbar {
       position: absolute;
       z-index: 4;
-      left: 18px;
+      left: 320px;
       right: 18px;
       top: 16px;
       display: flex;
@@ -544,6 +569,7 @@
     .scene-label.reject { left: 56%; top: 76%; color: #b91c1c; }
     .scene-label.raw { left: 58%; top: 32%; color: #047857; }
     .scene-label.specialist { left: 72%; top: 43%; }
+    .scene-label.specialist.inactive { color: #5b6472; }
     .scene-label.qualified { right: 5%; top: 24%; color: #047857; }
     .lab-flow-fallback {
       position: absolute;
@@ -840,6 +866,9 @@
       .lab-flow-panel, .lab-flow-shell { min-height: 680px; }
       .lab-flow-topbar { display: block; }
       .lab-flow-readouts { grid-template-columns: repeat(2, minmax(0, 1fr)); min-width: 0; margin-top: 12px; }
+      .lab-flow-topbar { left: 18px; }
+      .lab-flow-side-stats { left: 18px; right: 18px; top: 92px; width: auto; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .lab-flow-scaffold { inset: 260px 36px 34px; }
       .candidates-panel { grid-column: auto; }
       .tested-cards-panel { grid-column: auto; }
       .candidate-grid, .tested-list, .raw-specialist-list { grid-template-columns: 1fr; }
@@ -851,6 +880,8 @@
       .lab-flow-panel, .lab-flow-shell { min-height: 840px; }
       .lab-flow-readouts { grid-template-columns: 1fr; }
       .lab-flow-title strong { font-size: 22px; }
+      .lab-flow-side-stats { grid-template-columns: 1fr; top: 86px; }
+      .lab-flow-scaffold { inset: 430px 28px 34px; }
       .scene-label { font-size: 13px; padding: 6px 8px; }
       .scene-label.input { left: 8%; top: 73%; }
       .scene-label.lab { left: 38%; top: 57%; }
@@ -872,21 +903,18 @@
         <p>Autoresearch yield · specialist qualification · current regime pressure</p>
       </div>
       <div class="hero-badges">
-        <span class="stamp"><strong>2026-05-02</strong><small>07:07:00</small></span>
+        <span class="stamp"><strong>2026-05-02</strong><small>08:01:33</small></span>
         <span>Refresh 10s</span>
       </div>
     </div>
   </header>
   <main>
-    <section class="stat-grid"><article class='stat-card neutral'><span>Ratchets analyzed</span><strong>1,398</strong><small>total ratchets</small></article>
-<article class='stat-card neutral'><span>Cards analyzed</span><strong>4,949</strong><small>total cards</small></article>
-<article class='stat-card good'><span>Lab state</span><strong>Lab idle</strong><small>0 pending / 0 running</small></article>
-<article class='stat-card active'><span>Raw specialist yield</span><strong>22.4%</strong><small>1,111/4,949 tested cards</small></article>
-<article class='stat-card neutral'><span>Qualified yield</span><strong>0.0%</strong><small>0 qualified leads</small></article>
-<article class='stat-card good'><span>Regime coverage</span><strong>100%</strong><small>447,609 labelled windows</small></article></section>
     <section class="panel lab-flow-panel">
       <div class="lab-flow-shell" aria-label="Data-driven 3D lab flow animation">
         <canvas id="lab-flow-canvas"></canvas>
+        <div class="lab-flow-side-stats"><article class='stat-card neutral'><span>Ratchets analyzed</span><strong>1,422</strong><small>total ratchets</small></article>
+<article class='stat-card neutral'><span>Cards analyzed</span><strong>4,949</strong><small>total cards</small></article>
+<article class='stat-card good'><span>Regime coverage</span><strong>100%</strong><small>456,537 labelled windows</small></article></div>
         <div class="lab-flow-scaffold" aria-hidden="true">
           
           <svg class="flow-conveyor-svg" viewBox="0 0 1400 520" preserveAspectRatio="none" role="img" aria-label="Animated batch conveyors">
@@ -900,7 +928,7 @@
                 <stop offset="1" stop-color="#5da14d"></stop>
               </linearGradient>
               <path id="inputPath" d="M70 338 C232 317 388 283 535 268 C620 258 672 247 700 245"></path>
-              <path id="rawPath" d="M700 245 C800 178 910 160 956 226 C972 250 970 270 952 286"></path>
+              <path id="rawPath" d="M700 245 C800 178 916 174 994 260 C1008 274 1016 282 1024 286"></path>
               <path id="rejectPath" d="M700 245 C812 300 936 382 1062 456"></path>
               <path id="qualifiedPath" d="M1070 276 C1150 208 1252 122 1360 70"></path>
               <path id="specialistRejectPath" d="M1070 292 C1166 326 1262 376 1362 430"></path>
@@ -924,8 +952,8 @@
             <rect class="svg-machine" x="642" y="204" width="116" height="82" rx="10" transform="rotate(-10 700 245)"></rect>
             <rect class="svg-machine-window" x="666" y="226" width="74" height="13" rx="7" transform="rotate(-10 703 233)"></rect>
             <ellipse class="flow-machine-shadow" cx="1070" cy="318" rx="68" ry="21"></ellipse>
-            <rect class="svg-machine specialist" x="1012" y="243" width="116" height="82" rx="10" transform="rotate(-10 1070 284)"></rect>
-            <rect class="svg-machine-window" x="1036" y="265" width="74" height="13" rx="7" transform="rotate(-10 1073 272)"></rect>
+            <rect class="svg-machine specialist inactive" x="1012" y="243" width="116" height="82" rx="10" transform="rotate(-10 1070 284)"></rect>
+            <rect class="svg-machine-window inactive" x="1036" y="265" width="74" height="13" rx="7" transform="rotate(-10 1073 272)"></rect>
             <g class="svg-batch input"><rect x="-27.0" y="-9.0" width="14" height="14"></rect><rect x="-9.0" y="-9.0" width="14" height="14"></rect><rect x="9.0" y="-9.0" width="14" height="14"></rect><animateMotion dur="7.6s" begin="-.2s" repeatCount="indefinite" rotate="auto"><mpath href="#inputPath"></mpath></animateMotion></g>
               <g class="svg-batch input"><rect x="-27.0" y="-9.0" width="14" height="14"></rect><rect x="-9.0" y="-9.0" width="14" height="14"></rect><rect x="9.0" y="-9.0" width="14" height="14"></rect><animateMotion dur="7.6s" begin="-2.7s" repeatCount="indefinite" rotate="auto"><mpath href="#inputPath"></mpath></animateMotion></g>
               <g class="svg-batch input"><rect x="-27.0" y="-9.0" width="14" height="14"></rect><rect x="-9.0" y="-9.0" width="14" height="14"></rect><rect x="9.0" y="-9.0" width="14" height="14"></rect><animateMotion dur="7.6s" begin="-5.2s" repeatCount="indefinite" rotate="auto"><mpath href="#inputPath"></mpath></animateMotion></g>
@@ -953,19 +981,13 @@
             <span>Lab State Flow</span>
             <strong>Lab idle</strong>
           </div>
-          <div class="lab-flow-readouts">
-            <div class="flow-readout flow-open"><span>Open Cards</span><strong>0</strong><small>0 pending / 0 running</small></div>
-            <div class="flow-readout flow-lab"><span>Raw Specialist Split</span><strong>22.4%</strong><small>1,111/4,949 raw specialists</small></div>
-            <div class="flow-readout flow-qualified"><span>Qualified Split</span><strong>0.0%</strong><small>0 qualified leads</small></div>
-            <div class="flow-readout flow-reject"><span>Rejected Cards</span><strong>4,949</strong><small>1,398 ratchets analyzed</small></div>
-          </div>
         </div>
         <div class="lab-flow-labels">
-          <div class="scene-label input">ratchet batches<small>1,398 tested parties</small></div>
+          <div class="scene-label input">ratchet batches<small>1,422 tested parties</small></div>
           <div class="scene-label lab">TC lab<small>0 open cards</small></div>
           <div class="scene-label reject">reject<small>4,949 cards</small></div>
-          <div class="scene-label raw">raw specialists<small>1,111 leads</small></div>
-          <div class="scene-label specialist">specialist evaluator<small>repeatability / regime fit</small></div>
+          <div class="scene-label raw">raw specialists<small>1,124 leads</small></div>
+          <div class="scene-label specialist inactive">specialist evaluator<small>inactive / no qualified leads</small></div>
           <div class="scene-label qualified">qualified<small>0 leads</small></div>
         </div>
         <div class="lab-flow-fallback">3D lab flow could not load. The live counts above still reflect the current lab state.</div>
@@ -984,13 +1006,13 @@
           <div class="mini-grid">
             <div class="mini"><span>Killed Families</span><strong>1422</strong></div>
             <div class="mini"><span>Active Families</span><strong>0</strong></div>
-            <div class="mini"><span>Need Evidence</span><strong>3,989</strong></div>
+            <div class="mini"><span>Need Evidence</span><strong>4,068</strong></div>
           </div>
         </section>
         <section class="panel ratchet-panel">
           <span class="eyebrow">Autoresearch Ratchet</span>
           <div class="funnel" style="margin-top: 16px;">
-            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>1398</strong></div>
+            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>1422</strong></div>
             <div class="bar-row"><span>Kept</span><div class="bar"><span class="teal" style="width: 0%"></span></div><strong>0</strong></div>
             <div class="bar-row"><span>Crashed</span><div class="bar"><span class="amber" style="width: 0%"></span></div><strong>0</strong></div>
           </div>
@@ -1009,7 +1031,7 @@
           <ul class="ops-list" style="margin-top: 10px;">
             <li><strong>Model</strong><small>ollama/gemma4:e4b</small></li>
             <li><strong>Open Cards</strong><small>0/64 max</small></li>
-            <li><strong>Latest Event</strong><small>2026-05-02T03:51:34Z · seed_proposal_batch:completed</small></li>
+            <li><strong>Latest Event</strong><small>2026-05-02T04:58:02Z · build_windowed_result_ledger:completed</small></li>
             <li><strong>Latest Proposal</strong><small>ar1423-capability-fallback-recipe-using-cmo-sma-with-no · seeded · capability_fallback · ollama/gemma4:e4b</small></li>
             <li><strong>Last Valid Seed</strong><small>2026-05-02T03:51:34Z</small></li>
             <li><strong>Blockers</strong><small>fallback_source_suffix · 194 rejection fingerprints</small></li>
@@ -1046,8 +1068,8 @@
 <div class='metric neutral'><span>Promoted</span><strong>0</strong></div>
 <div class='metric neutral'><span>Rejected</span><strong>4949</strong></div>
 <div class='metric neutral'><span>Crashed</span><strong>0</strong></div>
-<div class='metric active'><span>Specialists</span><strong>1111</strong></div>
-<div class='metric neutral'><span>Window Rows</span><strong>447609</strong></div>
+<div class='metric active'><span>Specialists</span><strong>1124</strong></div>
+<div class='metric neutral'><span>Window Rows</span><strong>456537</strong></div>
 <div class='metric neutral'><span>Emails Sent</span><strong>23</strong></div>
 <div class='metric warn'><span>Open Attention</span><strong>44</strong></div></div>
         </section>
@@ -1057,7 +1079,7 @@
         </section>
     </div>
   </main>
-  <script type="application/json" id="lab-flow-state">{&quot;analyzedCards&quot;: 4949, &quot;batchSize&quot;: 3, &quot;crashedCards&quot;: 0, &quot;openCards&quot;: 0, &quot;pendingCards&quot;: 0, &quot;qualifiedLeads&quot;: 0, &quot;qualifiedRate&quot;: 0.0, &quot;ratchetsAnalyzed&quot;: 1398, &quot;rawSpecialistLeads&quot;: 1111, &quot;rawSpecialistRate&quot;: 0.22448979591836735, &quot;rejectedCards&quot;: 4949, &quot;runningCards&quot;: 0, &quot;testedCards&quot;: 4949}</script>
+  <script type="application/json" id="lab-flow-state">{&quot;analyzedCards&quot;: 4949, &quot;batchSize&quot;: 3, &quot;crashedCards&quot;: 0, &quot;evaluatorActive&quot;: false, &quot;openCards&quot;: 0, &quot;pendingCards&quot;: 0, &quot;qualifiedLeads&quot;: 0, &quot;qualifiedRate&quot;: 0.0, &quot;ratchetsAnalyzed&quot;: 1422, &quot;rawSpecialistLeads&quot;: 1124, &quot;rawSpecialistRate&quot;: 0.2271165892099414, &quot;rejectedCards&quot;: 4949, &quot;runningCards&quot;: 0, &quot;testedCards&quot;: 4949}</script>
 
   <script type="module">
     import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
@@ -1068,23 +1090,6 @@
     const state = JSON.parse(stateNode?.textContent || "{}");
 
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-    const pct = (value) => `${(Number(value || 0) * 100).toFixed(1)}%`;
-
-    const readoutMap = {
-      ".flow-open strong": state.openCards,
-      ".flow-open small": `${state.pendingCards} pending / ${state.runningCards} running`,
-      ".flow-lab strong": pct(state.rawSpecialistRate),
-      ".flow-lab small": `${state.rawSpecialistLeads}/${state.testedCards} raw specialists`,
-      ".flow-qualified strong": pct(state.qualifiedRate),
-      ".flow-qualified small": `${state.qualifiedLeads} qualified leads`,
-      ".flow-reject strong": state.rejectedCards,
-      ".flow-reject small": `${state.ratchetsAnalyzed} ratchets analyzed`
-    };
-    for (const [selector, value] of Object.entries(readoutMap)) {
-      const el = document.querySelector(selector);
-      if (el) el.textContent = value;
-    }
-
     try {
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -1113,6 +1118,7 @@
         raw: new THREE.MeshStandardMaterial({ color: 0xf6c453, roughness: .42, metalness: .08 }),
         card: new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: .5, metalness: .05 }),
         dark: new THREE.MeshStandardMaterial({ color: 0x475569, roughness: .58, metalness: .08 }),
+        inactive: new THREE.MeshStandardMaterial({ color: 0x8a9072, roughness: .74, metalness: .02 }),
         amber: new THREE.MeshStandardMaterial({ color: 0xf59e0b, roughness: .42, metalness: .1 })
       };
 
@@ -1164,9 +1170,10 @@
       const lab = makeBox("lab-machine", [1.35, 1.15, 1.15], [-2.45, .58, 0], materials.lab);
       const labTop = makeBox("lab-machine-window", [.95, .08, .18], [-2.45, 1.18, -.3], materials.card);
       makeBox("lab-control-light", [.22, .16, .22], [-1.85, 1.28, .34], materials.reject);
-      const specialist = makeBox("specialist-machine", [1.2, 1.08, 1.08], [3.15, .54, -1.62], materials.specialist);
+      const evaluatorActive = Boolean(state.evaluatorActive);
+      const specialist = makeBox("specialist-machine", [1.2, 1.08, 1.08], [3.15, .54, -1.62], evaluatorActive ? materials.specialist : materials.inactive);
       makeBox("specialist-window", [.84, .08, .18], [3.15, 1.1, -1.9], materials.card);
-      makeBox("specialist-control-light", [.2, .16, .2], [3.68, 1.2, -1.32], materials.raw);
+      makeBox("specialist-control-light", [.2, .16, .2], [3.68, 1.2, -1.32], evaluatorActive ? materials.raw : materials.dark);
       makeBox("lab-splitter", [.5, .58, .85], [.25, .29, 0], materials.rail);
       makeBox("specialist-splitter", [.45, .54, .78], [4.1, .27, -1.3], materials.rail);
 
