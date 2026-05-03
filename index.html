@@ -341,6 +341,37 @@
       color: var(--ink);
       font-size: 14px;
     }
+    .kept-return-audit {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(128, 92, 50, .18);
+    }
+    .kept-return-audit summary {
+      cursor: pointer;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .kept-return-row {
+      display: grid;
+      grid-template-columns: minmax(210px, 1.8fr) repeat(5, minmax(76px, .7fr));
+      gap: 8px;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(128, 92, 50, .12);
+      font-size: 12px;
+    }
+    .kept-return-row span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .kept-return-head {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
     .stat-card.good strong { color: var(--good); }
     .stat-card.warn strong { color: var(--warn); }
     .stat-card.bad strong { color: var(--bad); }
@@ -608,6 +639,41 @@
       max-width: 100%;
       overflow-wrap: anywhere;
     }
+    .tc-rule-panels {
+      display: grid;
+      gap: 8px;
+      margin: 2px 0;
+    }
+    .tc-rule-panel {
+      padding: 10px;
+      border: 1px solid rgba(128, 92, 50, .22);
+      border-radius: 8px;
+      background: rgba(255, 248, 232, .72);
+    }
+    .tc-rule-panel span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .tc-rule-panel small {
+      display: block;
+      margin-top: 9px;
+      color: var(--good);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .tc-rule-panel code {
+      display: block;
+      margin-top: 7px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      color: #172033;
+      font-size: 13px;
+      line-height: 1.45;
+    }
     .specialist-expanded small {
       overflow-wrap: anywhere;
       max-width: 100%;
@@ -781,7 +847,7 @@
         <p>Autoresearch yield · specialist qualification · current regime pressure</p>
       </div>
       <div class="hero-badges">
-        <span class="stamp"><strong>2026-05-03</strong><small>03:00:12</small></span>
+        <span class="stamp"><strong>2026-05-03</strong><small>04:00:58</small></span>
         <span>Refresh 10s</span>
       </div>
     </div>
@@ -794,16 +860,16 @@
           <span class="eyebrow">Monthly Validation Drain</span>
           <h2>2024-2025 strategy months</h2>
         </div>
-        <strong>43 promising <small>1.55% of completed</small></strong>
+        <strong>47 promising <small>1.49% of completed</small></strong>
       </div>
       <div class="monthly-flow-lanes" aria-label="Monthly strategy test flow">
         <div class="monthly-node waiting">
-          <span>Waiting</span><strong>104,763</strong>
-          <div class="flow-meter"><i style="width: 97.41%"></i></div>
+          <span>Waiting</span><strong>104,396</strong>
+          <div class="flow-meter"><i style="width: 97.07%"></i></div>
         </div>
         <div class="flow-track active"><span></span></div>
         <div class="monthly-node testing">
-          <span>Testing</span><strong>4</strong>
+          <span>Testing</span><strong>1</strong>
           <div class="flow-meter"><i style="width: 0.35%"></i></div>
         </div>
         <div class="flow-split">
@@ -811,35 +877,37 @@
           <span class="keep"></span>
         </div>
         <div class="monthly-node rejected">
-          <span>Rejected</span><strong>2,734</strong>
-          <div class="flow-meter"><i style="width: 2.54%"></i></div>
+          <span>Rejected</span><strong>3,100</strong>
+          <div class="flow-meter"><i style="width: 2.88%"></i></div>
         </div>
         <div class="monthly-node kept">
-          <span>Kept</span><strong>43</strong>
+          <span>Kept</span><strong>47</strong>
           <div class="flow-meter"><i style="width: 0.35%"></i></div>
         </div>
       </div>
       <div class="monthly-flow-insights">
-        <span><b>2,777</b> done / 107,544</span>
-        <span><b>879</b> tests/hour</span>
-        <span><b>5.0m</b> dispatch to done avg</span>
-        <span><b>4</b> TC queued · avg age 34.8m</span>
-        <span><b>5.0d</b> ETA at current pace</span>
+        <span><b>3,147</b> done / 107,544</span>
+        <span><b>754</b> tests/hour</span>
+        <span><b>4.5m</b> dispatch to done avg</span>
+        <span><b>4</b> TC queued · avg age 1s</span>
+        <span><b>5.8d</b> ETA at current pace</span>
+        <span><b>3.49%</b> kept avg capital-norm · 47 corrected from 10% sizing</span>
       </div>
+      
     </section>
     
     <div class="dashboard-grid">
       <div class="left-stack">
         <section class="panel ratchet-panel">
           <span class="eyebrow">Autoresearch Ratchet</span>
-          <h2>4,178 ratchets</h2>
+          <h2>4,156 ratchets</h2>
           <div class="mini-grid" style="margin-top: 10px;">
-            <div class="mini"><span>Rejected</span><strong>4177</strong></div>
+            <div class="mini"><span>Rejected</span><strong>4155</strong></div>
             <div class="mini"><span>Kept</span><strong>1</strong></div>
             <div class="mini"><span>Need Evidence</span><strong>4,068</strong></div>
           </div>
           <div class="funnel" style="margin-top: 16px;">
-            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>4177</strong></div>
+            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>4155</strong></div>
             <div class="bar-row"><span>Kept</span><div class="bar"><span class="teal" style="width: 0%"></span></div><strong>1</strong></div>
             <div class="bar-row"><span>Crashed</span><div class="bar"><span class="amber" style="width: 0%"></span></div><strong>0</strong></div>
           </div>
