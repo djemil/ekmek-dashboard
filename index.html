@@ -553,7 +553,7 @@
     }
     .specialist-grid {
       display: grid;
-      grid-template-columns: 44px minmax(190px, 2.2fr) minmax(92px, .9fr) repeat(5, minmax(58px, .6fr)) minmax(72px, .7fr) minmax(72px, .7fr);
+      grid-template-columns: 56px minmax(190px, 2.2fr) minmax(92px, .9fr) repeat(5, minmax(58px, .6fr)) minmax(72px, .7fr) minmax(72px, .7fr);
       gap: 7px;
       align-items: center;
       min-width: 0;
@@ -648,9 +648,11 @@
     }
     .rank.small {
       flex: none;
-      width: 36px;
+      width: 48px;
       height: 36px;
-      font-size: 14px;
+      font-size: 11px;
+      line-height: 1;
+      white-space: nowrap;
     }
     .candidate-stats {
       display: flex;
@@ -754,7 +756,7 @@
       .flow-track, .flow-split { display: none; }
       .monthly-flow-insights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .candidate-grid, .raw-specialist-list { grid-template-columns: 1fr; }
-      .specialist-grid { min-width: 920px; }
+      .specialist-grid { min-width: 940px; }
       .validation-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 620px) {
@@ -779,7 +781,7 @@
         <p>Autoresearch yield · specialist qualification · current regime pressure</p>
       </div>
       <div class="hero-badges">
-        <span class="stamp"><strong>2026-05-03</strong><small>02:00:14</small></span>
+        <span class="stamp"><strong>2026-05-03</strong><small>03:00:12</small></span>
         <span>Refresh 10s</span>
       </div>
     </div>
@@ -792,16 +794,16 @@
           <span class="eyebrow">Monthly Validation Drain</span>
           <h2>2024-2025 strategy months</h2>
         </div>
-        <strong>35 promising <small>1.84% of completed</small></strong>
+        <strong>43 promising <small>1.55% of completed</small></strong>
       </div>
       <div class="monthly-flow-lanes" aria-label="Monthly strategy test flow">
         <div class="monthly-node waiting">
-          <span>Waiting</span><strong>105,604</strong>
-          <div class="flow-meter"><i style="width: 98.20%"></i></div>
+          <span>Waiting</span><strong>104,763</strong>
+          <div class="flow-meter"><i style="width: 97.41%"></i></div>
         </div>
         <div class="flow-track active"><span></span></div>
         <div class="monthly-node testing">
-          <span>Testing</span><strong>38</strong>
+          <span>Testing</span><strong>4</strong>
           <div class="flow-meter"><i style="width: 0.35%"></i></div>
         </div>
         <div class="flow-split">
@@ -809,19 +811,19 @@
           <span class="keep"></span>
         </div>
         <div class="monthly-node rejected">
-          <span>Rejected</span><strong>1,870</strong>
-          <div class="flow-meter"><i style="width: 1.74%"></i></div>
+          <span>Rejected</span><strong>2,734</strong>
+          <div class="flow-meter"><i style="width: 2.54%"></i></div>
         </div>
         <div class="monthly-node kept">
-          <span>Kept</span><strong>35</strong>
+          <span>Kept</span><strong>43</strong>
           <div class="flow-meter"><i style="width: 0.35%"></i></div>
         </div>
       </div>
       <div class="monthly-flow-insights">
-        <span><b>1,902</b> done / 107,544</span>
-        <span><b>880</b> tests/hour</span>
-        <span><b>6.7m</b> dispatch to done avg</span>
-        <span><b>25</b> TC queued · avg age 2.0m</span>
+        <span><b>2,777</b> done / 107,544</span>
+        <span><b>879</b> tests/hour</span>
+        <span><b>5.0m</b> dispatch to done avg</span>
+        <span><b>4</b> TC queued · avg age 34.8m</span>
         <span><b>5.0d</b> ETA at current pace</span>
       </div>
     </section>
@@ -830,14 +832,14 @@
       <div class="left-stack">
         <section class="panel ratchet-panel">
           <span class="eyebrow">Autoresearch Ratchet</span>
-          <h2>4,179 ratchets</h2>
+          <h2>4,178 ratchets</h2>
           <div class="mini-grid" style="margin-top: 10px;">
-            <div class="mini"><span>Rejected</span><strong>4178</strong></div>
+            <div class="mini"><span>Rejected</span><strong>4177</strong></div>
             <div class="mini"><span>Kept</span><strong>1</strong></div>
             <div class="mini"><span>Need Evidence</span><strong>4,068</strong></div>
           </div>
           <div class="funnel" style="margin-top: 16px;">
-            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>4178</strong></div>
+            <div class="bar-row"><span>Discarded</span><div class="bar"><span class="bad" style="width: 100%"></span></div><strong>4177</strong></div>
             <div class="bar-row"><span>Kept</span><div class="bar"><span class="teal" style="width: 0%"></span></div><strong>1</strong></div>
             <div class="bar-row"><span>Crashed</span><div class="bar"><span class="amber" style="width: 0%"></span></div><strong>0</strong></div>
           </div>
@@ -852,7 +854,7 @@
             <li><strong>Recent Emails / Findings</strong><small>Private report metadata hidden.</small></li>
             <li><strong>Research In Flight</strong><small>No non-matrix research cards pending, running, or parked.</small></li>
             <li><strong>Non-Matrix Analyzed</strong><small>10,711 historical research cards</small></li>
-            <li><strong>Cards Created Today</strong><small>5960</small></li>
+            <li><strong>Cards Created Today</strong><small>0</small></li>
           </ul>
           <div style="display:none"><div class='metric neutral'><span>Cards</span><strong>10711</strong></div>
 <div class='metric neutral'><span>Pending</span><strong>0</strong></div>
